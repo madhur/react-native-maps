@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 import AuthScreen from './screens/AuthScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import MapScreen from './screens/MapScreen';
 import DeckScreen from './screens/DeckScreen';
 import ReviewScreen from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import store from './store';
 
 export default class App extends React.Component {
     render() {
@@ -29,10 +31,12 @@ export default class App extends React.Component {
         );
 
         return (
-            <View style={styles.container}>
-                <MainNavigator />
+            <Provider store={store}>
+                <View style={styles.container}>
+                    <MainNavigator />
 
-            </View>
+                </View>
+            </Provider>
         );
     }
 }
