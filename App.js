@@ -9,54 +9,39 @@ import ReviewScreen from './screens/ReviewScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
 export default class App extends React.Component {
-  render() {
-    const MainNavigator = TabNavigator({
-      welcome: { screen: WelcomeScreen },
-      auth: { screen: AuthScreen },
-      main: {
-        screen: StackNavigator({
-          map: { screen: MapScreen },
-          deck: { screen: DeckScreen },
-          review: {
-            screen: StackNavigator({
-              review: { screen: ReviewScreen },
-              settings: { screen: SettingsScreen }
-            })
-          }
-        }, {
-            tabBarPosition: 'bottom',
-            animationEnabled: false,
-            swipeEnabled: false,
-            lazyLoad: false,
-            tabBarOptions: {
-              activeTintColor: '#e91e63'
+    render() {
+        const MainNavigator = TabNavigator({
+            welcome: { screen: WelcomeScreen },
+            auth: { screen: AuthScreen },
+            main: {
+                screen: TabNavigator({
+                    map: { screen: MapScreen },
+                    deck: { screen: DeckScreen },
+                    review: {
+                        screen: StackNavigator({
+                            review: { screen: ReviewScreen },
+                            settings: { screen: SettingsScreen }
+                        })
+                    }
+                })
             }
-          })
-      }
-    }, {
-        tabBarPosition: 'bottom',
-        animationEnabled: false,
-        swipeEnabled: false,
-        lazyLoad: false,
-        tabBarOptions: {
-          activeTintColor: '#e91e63'
         }
-      });
+        );
 
-    return (
-      <View style={styles.container}>
-        <MainNavigator />
-        <Text>Hi Madhur</Text>
-      </View>
-    );
-  }
+        return (
+            <View style={styles.container}>
+                <MainNavigator />
+
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+
+        justifyContent: 'center',
+    },
 });

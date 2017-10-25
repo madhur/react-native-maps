@@ -57,6 +57,6 @@ const styles = {
         backgroundColor: '#0288d1',
         marginTop: 15
     }
-}
+};
 export default Slides;
 
