@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, ScrollView, Linking } from 'react-native';
-import { Button, Card } from 'react-native-elements';
+import { Button, Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { MapView } from 'expo';
 
@@ -10,6 +10,9 @@ class ReviewScreen extends Component {
         const { navigate } = navigation;
         return {
             title: 'Review Jobs',
+            tabBarIcon: ({ tintColor }) => {
+                return <Icon name="favorite" size={30} color={tintColor}></Icon>;
+            },
             headerRight: <Button title="Settings" onPress={() => navigate('settings')}
                 backgroundColor="rgba(0,0,0,0)"
                 color="rgba(0, 122,255,1)"

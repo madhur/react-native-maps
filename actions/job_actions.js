@@ -5,7 +5,8 @@ import jobsjson from './jobs_json';
 
 import {
     FETCH_JOBS,
-    LIKE_JOB
+    LIKE_JOB,
+    CLEAR_LIKED_JOBS
 } from './types';
 
 const JOB_ROOT_URL = 'http://api.indeed.com/ads/apisearch?';
