@@ -6,7 +6,7 @@ import * as actions from '../actions';
 class AuthScreen extends Component {
     componentDidMount() {
         this.props.facebookLogin();
-        // AsyncStorage.clear();
+        AsyncStorage.clear();
         this.onAuthComplete(this.props);
     }
 
